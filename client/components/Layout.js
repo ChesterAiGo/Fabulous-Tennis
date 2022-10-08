@@ -29,14 +29,14 @@ const Layout = ({children}) => {
 
 
       <li className="nav-item">
-        <Link href="/">
+        <Link href="/home">
           <a className="nav-link text-dark">Home</a>
         </Link>
       </li>
 
       <li className="nav-item">
         <Link href="/user/link/create">
-          <a className="btn btn-success nav-link text-dark" style={{borderRadius: '0px'}}>Submit a link</a>
+          <a className="btn btn-success nav-link text-dark" style={{borderRadius: '0px'}}>Add a Video</a>
         </Link>
       </li>
 

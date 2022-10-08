@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import Layout from '../components/Layout';
+import Footer from '../components/Footer';
 import Link from 'next/link';
 import Router from 'next/router';
 import axios from 'axios'

@@ -1,5 +1,6 @@
 import {useState, useEffect, Fragment} from 'react';
 import Layout from '../../components/Layout';
+import Footer from '../../components/Footer';
 import axios from 'axios';
 import {API, APP_NAME} from '../../config';
 import Head from 'next/head';
@@ -131,7 +132,7 @@ const Links = ({query, category, links, totalLinks, linksLimit, linkSkip}) => {
     <Layout>
     <div className="row">
       <div className="col-md-8">
-        <h1 className="display-4 font-weight-bold">{category.name} - URL/Links</h1>
+        <h1 className="display-4 font-weight-bold">{category.name}</h1>
         <div className="lead alert alert-secondary pt-4">{parse(category.content || '')}</div>
       </div>
       <div className="col-md-4">
@@ -151,12 +152,12 @@ const Links = ({query, category, links, totalLinks, linksLimit, linkSkip}) => {
           {listOfLinks()}
         </div>
         <div className="col-md-4">
-          <h2 className="lead ms-2">Most popular in {category.name}</h2>
+          <h2 className="lead ms-2">Most popular matches played by: <br />{category.name}</h2>
           {listOfPopularLinks()}
         </div>
       </div>
     </InfiniteScroll>
-
+    <Footer></Footer>
   </Layout>
   </Fragment>
 )

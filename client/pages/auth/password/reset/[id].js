@@ -5,6 +5,7 @@ import {showSuccessMessage, showErrorMessage} from '../../../../helpers/alerts';
 import {API} from '../../../../config';
 import jwt from 'jsonwebtoken';
 import Layout from '../../../../components/Layout';
+import Footer from '../../../../components/Footer';
 
 
 const ResetPassword = ({router}) => {
@@ -76,6 +77,7 @@ const ResetPassword = ({router}) => {
           {passwordResetForm()}
         </div>
       </div>
+
     </Layout>
   )
 

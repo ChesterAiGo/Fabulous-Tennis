@@ -61,15 +61,16 @@ const Main = ({categories}) => {
   const listCategories = () => {
     return (categories.map((c, i) => (
       <Link href={`/links/${c.slug}`}>
-      <a key={c.name} style={{border: '1px solid red'}} className="bg-light p-3 col-md-4">
+      <a key={c.name} style={{border: '1px solid red'}} className="bg-light p-2 col-md-6">
         <div>
           <div className="row">
-            <div className="col-md-4">
-              <img className="pr-3" src={c.image && c.image.url} alt={c.name} style={{width: '100px', height: 'auto'}} />
+            <div className="col-md-6">
+              <img className="pr-3" src={c.image && c.image.url} alt={c.name} style={{width: '300px', height: 'auto'}} />
             </div>
-            <div className="col-md-8">
-              <h3>{c.name}</h3>
-            </div>
+
+            <div className="col-md-6 d-flex align-items-center justify-content-center">
+             <h3><p className="text-center">{c.name}</p></h3>
+          </div>
           </div>
         </div>
       </a>
@@ -81,7 +82,7 @@ const Main = ({categories}) => {
     <Layout>
       <div className="row">
         <div className="col-md-12">
-          <h1 className="font-weight-bold">Browse Tutorials</h1>
+          <h1 className="font-weight-bold">The "Big Four"</h1>
           <br />
         </div>
       </div>
@@ -91,7 +92,7 @@ const Main = ({categories}) => {
 
       <div className="row pt-5">
         <h2 className="font-weight-bold pb-3">
-          Trending {popular.length}
+          Most Popular Videos
         </h2>
         <div className="col-md-12 overflow-hidden">
           {listOfLinks()}

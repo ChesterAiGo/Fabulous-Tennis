@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'
 import Layout from '../components/Layout';
+import Footer from '../components/Footer';
 import axios from 'axios'
 import Router from 'next/router';
 // import {showSuccessMessage, showErrorMessage} from '../helpers/alerts';
@@ -133,7 +134,7 @@ const Register = () => {
           </div>
 
           <div className="form-group">
-              <label className="text-muted ms-4">Category</label>
+              <label className="text-muted ms-4">Favourite Players</label>
               <ul style={{ maxHeight: '100px', overflowY: 'scroll' }}>{showCategories()}</ul>
           </div>
 

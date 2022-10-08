@@ -1,6 +1,7 @@
 import Layout from '../../components/Layout';
 import Link from 'next/link';
 import Router from 'next/router';
+import Footer from '../../components/Footer';
 import axios from 'axios';
 import moment from 'moment';
 import { API } from '../../config';
@@ -100,6 +101,7 @@ const User = ({ user, userLinks, token }) => {
                     {listOfLinks()}
                 </div>
             </div>
+
         </Layout>
     );
 };

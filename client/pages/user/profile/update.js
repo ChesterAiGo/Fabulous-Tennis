@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Layout from '../../../components/Layout';
 import Router from 'next/router';
+import Footer from '../../../components/Footer';
 import axios from 'axios';
 import { showSuccessMessage, showErrorMessage } from '../../../helpers/alerts';
 import { API } from '../../../config';
@@ -133,7 +134,7 @@ const Profile = ({ user, token }) => {
             </div>
 
             <div className="form-group">
-                <label className="text-muted ms-4">Category</label>
+                <label className="text-muted ms-4">Favourite Players</label>
                 <ul style={{ maxHeight: '100px', overflowY: 'scroll' }}>{showCategories()}</ul>
             </div>
 
@@ -152,6 +153,7 @@ const Profile = ({ user, token }) => {
                 {error && showErrorMessage(error)}
                 {updateForm()}
             </div>
+
         </Layout>
     );
 };

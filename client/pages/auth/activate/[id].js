@@ -5,6 +5,7 @@ import axios from 'axios';
 import {showSuccessMessage, showErrorMessage} from '../../../helpers/alerts';
 import {API} from '../../../config';
 import Layout from '../../../components/Layout';
+import Footer from '../../../components/Footer';
 
 const ActivateAccount = ({router}) => {
   const [state, setState] = useState({

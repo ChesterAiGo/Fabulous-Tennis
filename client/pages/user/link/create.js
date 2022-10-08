@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
 import Layout from '../../../components/Layout';
+import Footer from '../../../components/Footer';
 import axios from 'axios';
 import { getCookie, isAuth } from '../../../helpers/auth';
 import { API } from '../../../config';
@@ -85,12 +86,12 @@ const Create = ({ token }) => {
                     <input
                         type="radio"
                         onClick={handleMediumClick}
-                        checked={medium === 'video'}
-                        value="video"
+                        checked={medium === 'GrandSlam'}
+                        value="GrandSlam"
                         className="from-check-input"
                         name="medium"
                     />{' '}
-                    Video
+                    Grand Slam
                 </label>
             </div>
 
@@ -99,14 +100,57 @@ const Create = ({ token }) => {
                     <input
                         type="radio"
                         onClick={handleMediumClick}
-                        checked={medium === 'book'}
-                        value="book"
+                        checked={medium === 'ATP1000'}
+                        value="ATP1000"
                         className="from-check-input"
                         name="medium"
                     />{' '}
-                    Book
+                    ATP 1000
                 </label>
             </div>
+
+            <div className="form-check ms-3">
+                <label className="form-check-label">
+                    <input
+                        type="radio"
+                        onClick={handleMediumClick}
+                        checked={medium === 'ATP500'}
+                        value="ATP500"
+                        className="from-check-input"
+                        name="medium"
+                    />{' '}
+                    ATP 500
+                </label>
+            </div>
+
+            <div className="form-check ms-3">
+                <label className="form-check-label">
+                    <input
+                        type="radio"
+                        onClick={handleMediumClick}
+                        checked={medium === 'ATP250'}
+                        value="ATP250"
+                        className="from-check-input"
+                        name="medium"
+                    />{' '}
+                    ATP 250
+                </label>
+            </div>
+
+            <div className="form-check ms-3">
+                <label className="form-check-label">
+                    <input
+                        type="radio"
+                        onClick={handleMediumClick}
+                        checked={medium === 'Others'}
+                        value="Others"
+                        className="from-check-input"
+                        name="medium"
+                    />{' '}
+                    Others
+                </label>
+            </div>
+
         </React.Fragment>
     );
 
@@ -117,12 +161,12 @@ const Create = ({ token }) => {
                     <input
                         type="radio"
                         onClick={handleTypeClick}
-                        checked={type === 'free'}
-                        value="free"
+                        checked={type === 'Grass'}
+                        value="Grass"
                         className="from-check-input"
                         name="type"
                     />{' '}
-                    Free
+                    Grass
                 </label>
             </div>
 
@@ -131,14 +175,29 @@ const Create = ({ token }) => {
                     <input
                         type="radio"
                         onClick={handleTypeClick}
-                        checked={type === 'paid'}
-                        value="paid"
+                        checked={type === 'Clay'}
+                        value="Clay"
                         className="from-check-input"
                         name="type"
                     />{' '}
-                    Paid
+                    Clay
                 </label>
             </div>
+
+            <div className="form-check ms-3">
+                <label className="form-check-label">
+                    <input
+                        type="radio"
+                        onClick={handleTypeClick}
+                        checked={type === 'Hard'}
+                        value="Hard"
+                        className="from-check-input"
+                        name="type"
+                    />{' '}
+                    Hard
+                </label>
+            </div>
+
         </React.Fragment>
     );
 
@@ -173,11 +232,11 @@ const Create = ({ token }) => {
     const submitLinkForm = () => (
         <form onSubmit={handleSubmit}>
             <div className="form-group">
-                <label className="text-muted">Title</label>
+                <label className="text-muted">Title (example: Roger Federer vs Rafael Nadal Wimbledon 2019 Semi-Final)</label>
                 <input type="text" className="form-control" onChange={handleTitleChange} value={title} />
             </div>
             <div className="form-group">
-                <label className="text-muted">URL</label>
+                <label className="text-muted">URL (example: https://www.youtube.com/watch?v=J8__TwOgTY0)</label>
                 <input type="url" className="form-control" onChange={handleURLChange} value={url} />
             </div>
             <div>
@@ -192,14 +251,14 @@ const Create = ({ token }) => {
         <Layout>
             <div className="row">
                 <div className="col-md-12">
-                    <h1>Submit Link/URL</h1>
+                    <h1>Add a Video to our Website!</h1>
                     <br />
                 </div>
             </div>
             <div className="row">
                 <div className="col-md-4">
                     <div className="form-group">
-                        <label className="text-muted ms-4">Category</label>
+                        <label className="text-muted ms-4">Players</label>
                         <ul style={{ maxHeight: '100px', overflowY: 'scroll' }}>{showCategories()}</ul>
                     </div>
                     <div className="form-group">
@@ -207,7 +266,7 @@ const Create = ({ token }) => {
                         {showTypes()}
                     </div>
                     <div className="form-group">
-                        <label className="text-muted ms-4">Medium</label>
+                        <label className="text-muted ms-4">Series</label>
                         {showMedium()}
                     </div>
                 </div>
@@ -217,6 +276,7 @@ const Create = ({ token }) => {
                     {submitLinkForm()}
                 </div>
             </div>
+
         </Layout>
     );
 };
