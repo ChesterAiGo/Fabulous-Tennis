@@ -17,6 +17,7 @@ const Layout = ({children}) => {
     <React.Fragment>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossOrigin="anonymous" />
       <link rel="stylesheet" href="/static/css/styles.css" />
+      <title>Fabuluous Tennis!</title>
     </React.Fragment>
   );
 
@@ -24,7 +25,7 @@ const Layout = ({children}) => {
 
 
   const nav = () => (
-    <ul className="nav nav-tabs bg-warning">
+    <ul className="nav nav-tabs bg-info bg-gradient">
 
 
       <li className="nav-item">
@@ -89,7 +90,7 @@ const Layout = ({children}) => {
     </ul>
   )
 
-  return <React.Fragment>
+  return (<React.Fragment>
     {head()}
     {
       nav()
@@ -97,7 +98,7 @@ const Layout = ({children}) => {
     <div className="container pt-5 pb-5">
       {children}
     </div>
-  </React.Fragment>
+  </React.Fragment>)
 }
 
 

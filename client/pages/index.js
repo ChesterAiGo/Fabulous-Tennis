@@ -1,112 +1,47 @@
-import {useEffect, useState} from 'react';
-import Layout from '../components/Layout';
-import axios from 'axios';
-import {API} from '../config';
-import Link from 'next/link';
-import moment from 'moment';
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import { Grid } from '@mui/material';
+import { Typography } from '@mui/material';
+import { cyan, red } from '@mui/material/colors';
 
-const Home = ({categories}) => {
+const Home = () => {
 
-  const [popular, setPopular] = useState([]);
-
-  useEffect(() => {
-    loadPopular()
-  }, []);
-
-
-  const loadPopular = async () => {
-    const response = await axios.get(`${API}link/popular`);
-    setPopular(response.data);
-  };
-
-  const handleClick = async linkId => {
-      const response = await axios.put(`${API}click-count`, { linkId });
-      loadPopular();
-  };
-
-  const listOfLinks = () =>
-      popular.map((l, i) => (
-          <div key={i} className="row alert alert-secondary p-2">
-              <div className="col-md-8" onClick={() => handleClick(l._id)}>
-                  <a href={l.url} target="_blank">
-                      <h5 className="pt-2">{l.title}</h5>
-                      <h6 className="pt-2 text-danger" style={{ fontSize: '12px' }}>
-                          {l.url}
-                      </h6>
-                  </a>
-              </div>
-
-              <div className="col-md-4 pt-2">
-                  <span className="pull-right">
-                      {moment(l.createdAt).fromNow()} by {l.postedBy.name}
-                  </span>
-              </div>
-
-              <div className="col-md-12">
-                  <span className="badge text-dark">
-                      {l.type} {l.medium}
-                  </span>
-                  {l.categories.map((c, i) => (
-                      <span key={i} className="badge text-success">
-                          {c.name}
-                      </span>
-                  ))}
-                  <span className="badge text-secondary pull-right">{l.clicks} clicks</span>
-              </div>
-          </div>
-      ));
-
-
-  const listCategories = () => {
-    return (categories.map((c, i) => (
-      <Link href={`/links/${c.slug}`}>
-      <a key={c.name} style={{border: '1px solid red'}} className="bg-light p-3 col-md-4">
-        <div>
-          <div className="row">
-            <div className="col-md-4">
-              <img className="pr-3" src={c.image && c.image.url} alt={c.name} style={{width: '100px', height: 'auto'}} />
-            </div>
-            <div className="col-md-8">
-              <h3>{c.name}</h3>
-            </div>
-          </div>
-        </div>
-      </a>
-      </Link>
-    )))
-  };
+  const backgroundImage = "https://www.atptour.com/-/media/images/news/2022/09/23/01/05/big-four-laver-cup-2022-preview-practice.jpg";
 
   return (
-    <Layout>
-      <div className="row">
-        <div className="col-md-12">
-          <h1 className="font-weight-bold">Browse Tutorials</h1>
-          <br />
-        </div>
-      </div>
-      <div className="row">
-        {listCategories()}
-      </div>
 
-      <div className="row pt-5">
-        <h2 className="font-weight-bold pb-3">
-          Trending {popular.length}
-        </h2>
-        <div className="col-md-12 overflow-hidden">
-          {listOfLinks()}
-        </div>
-      </div>
-    </Layout>
+    <div className="bg-image" style={{backgroundImage: `url(${backgroundImage})`, height: '100vh', width: '100vw', backgroundPosition: 'center', backgroundSize: 'cover'}} >
+
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      style={{ minHeight: '100vh' }}
+      >
+
+      <Grid item xs={6} sx={{pb: 2}}>
+        <Typography variant="h4" color={cyan[200]} align="center">
+          Click to Browse some of the
+        </Typography>
+        <Typography variant="h2" color={red[400]} align="center">
+          <b>GREATEST</b>
+        </Typography>
+        <Typography variant="h4" color={cyan[200]} align="center">
+          Tennis Matches!
+        </Typography>
+      </Grid>
+
+      <Grid item xs={3}>
+       <Button variant="contained" size="large" href='/home'>Enter Website</Button>
+      </Grid>
+
+    </Grid>
+    </div>
+
   );
 };
-
-// server side rendering
-Home.getInitialProps = async () => {
-  const response = await axios.get(`${API}categories`);
-  return {
-    categories: response.data
-  };
-}
 
 
 export default Home;
