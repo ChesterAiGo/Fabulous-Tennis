@@ -30,7 +30,7 @@ const ActivateAccount = ({router}) => {
     setState({...state, buttonText: "Activating"});
     try {
       const response = await axios.post(`${API}register/activate`, {token});
-      setState({...state, name: '', token: '', buttonText: 'Activated', success: response.data.message});
+      setState({...state, token: '', buttonText: 'Activated', success: response.data.message});
     } catch (error) {
       setState({...state, buttonText: 'Activate Account', error: error.response.data.error});
     }

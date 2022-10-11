@@ -7,10 +7,11 @@ const { registerEmailParams, forgotPasswordEmailParams } = require('../helpers/e
 const shortId = require('shortid');
 const _ = require('lodash');
 
+
 AWS.config.update({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    region: process.env.AWS_REGION
+    region: 'us-east-1'
 });
 
 const ses = new AWS.SES({ apiVersion: '2010-12-01' });
@@ -113,7 +114,7 @@ exports.login = (req, res) => {
     });
 };
 
-exports.requireSignin = expressJwt({ secret: process.env.JWT_SECRET, algorithms: ['sha1', 'HS256', 'RS256']}); 
+exports.requireSignin = expressJwt({ secret: process.env.JWT_SECRET, algorithms: ['sha1', 'HS256', 'RS256']});
 
 exports.authMiddleware = (req, res, next) => {
     const authUserId = req.auth._id;

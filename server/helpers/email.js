@@ -4,7 +4,6 @@ exports.registerEmailParams = (email, token) => {
     Destination: {
       ToAddresses: [email]
     },
-    ReplyToAddresses: [process.env.EMAIL_TO],
     Message: {
       Body: {
         Html: {
@@ -29,7 +28,6 @@ exports.forgotPasswordEmailParams = (email, token) => {
     Destination: {
       ToAddresses: [email]
     },
-    ReplyToAddresses: [process.env.EMAIL_TO],
     Message: {
       Body: {
         Html: {
