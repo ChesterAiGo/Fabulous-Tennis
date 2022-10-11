@@ -84,19 +84,19 @@ const User = ({ user, userLinks, token }) => {
                     <ul className="nav flex-column">
                         <li className="nav-item">
                             <Link href="/user/link/create">
-                                <a className="nav link">Submit a link</a>
+                                <a className="nav link">Add a Video</a>
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link href="/user/profile/update">
-                                <a className="nav link">Update profile</a>
+                                <a className="nav link">Update Profile</a>
                             </Link>
                         </li>
                     </ul>
                 </div>
 
                 <div className="col-md-8">
-                    <h2>Your links</h2>
+                    <h2>Your Videos</h2>
                     <br />
                     {listOfLinks()}
                 </div>

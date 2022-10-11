@@ -13,8 +13,8 @@ const withUser = Page => {
             try {
                 const response = await axios.get(`${API}user`, {
                     headers: {
-                        authorization: `Bearer ${token}`,
-                        contentType: 'application/json'
+                        Authorization: `Bearer ${token}`,
+                        ContentType: 'application/json'
                     }
                 });
                 // console.log('response in withUser', response);
