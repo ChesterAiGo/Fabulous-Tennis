@@ -17,7 +17,7 @@ const ses = new AWS.SES({ apiVersion: '2010-12-01' });
 exports.create = (req, res) => {
     const { title, url, categories, type, medium } = req.body;
     // console.table({ title, url, categories, type, medium });
-    const slug = url;
+    const slug = slugify(title);
     let link = new Link({ title, url, categories, type, medium, slug });
     // posted by user
     link.postedBy = req.auth._id;
@@ -98,7 +98,8 @@ exports.read = (req, res) => {
 exports.update = (req, res) => {
   const {id} = req.params;
   const {title, url, categories, type, medium} = req.body;
-  const updatedLink = {title, url, categories, type, medium};
+  const slug = slugify(title);
+  const updatedLink = {title, url, categories, type, medium, slug};
   Link.findOneAndUpdate({_id: id}, updatedLink, {new: true}).exec((err, updated) => {
     if (err) {
       return res.status(400).json({

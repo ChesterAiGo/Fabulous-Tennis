@@ -41,7 +41,7 @@ const Links = ({ token, links, totalLinks, linksLimit, linkSkip }) => {
         allLinks.map((l, i) => (
             <div key={i} className="row alert alert-primary p-2">
                 <div className="col-md-8" onClick={e => handleClick(l._id)}>
-                    <a href={l.url} target="_blank">
+                    <a href={`/videos/${l.slug}`} target="_blank">
                         <h5 className="pt-2">{l.title}</h5>
                         <h6 className="pt-2 text-danger" style={{ fontSize: '12px' }}>
                             {l.url}

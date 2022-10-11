@@ -9,6 +9,7 @@ import { getCookie, isAuth } from '../../../helpers/auth';
 import { API } from '../../../config';
 import { showSuccessMessage, showErrorMessage } from '../../../helpers/alerts';
 
+
 const Update = ({ oldLink, token }) => {
     // state
     const [state, setState] = useState({
@@ -57,7 +58,7 @@ const Update = ({ oldLink, token }) => {
         try {
             const response = await axios.put(
                 dynamicUpdateUrl,
-                { title, url, categories, type, medium },
+                { title, url, categories, type, medium},
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

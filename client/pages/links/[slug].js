@@ -58,7 +58,7 @@ const Links = ({query, category, links, totalLinks, linksLimit, linkSkip}) => {
       popular.map((l, i) => (
           <div key={i} className="row alert alert-secondary p-2 ms-2">
               <div className="col-md-8" onClick={() => handleClick(l._id)}>
-                  <a href={l.url} target="_blank">
+                  <a href={`/videos/${l.slug}`} target="_blank">
                       <h5 className="pt-2">{l.title}</h5>
                       <h6 className="pt-2 text-danger" style={{ fontSize: '12px' }}>
                           {l.url}
@@ -90,7 +90,7 @@ const Links = ({query, category, links, totalLinks, linksLimit, linkSkip}) => {
     return (allLinks.map((l, i) => (
       <div key={i} className="row alert alert-primary p-2">
         <div className="col-md-8" onClick={e => handleClick(l._id)}>
-          <a href={l.url} target="_blank">
+          <a href={`/videos/${l.slug}`} target="_blank">
             <h5 className="pt-2">{l.title}</h5>
             <h6 className="pt-2 text-danger" stype={{fontSize: '12px'}}>{l.url}</h6>
           </a>
@@ -164,6 +164,8 @@ const Links = ({query, category, links, totalLinks, linksLimit, linkSkip}) => {
 };
 
 Links.getInitialProps = async ({query, req}) => {
+  // console.log("QUERY IS", query);
+  // console.log("REQ IS", req);
   let skip = 0;
   let limit = 2;
 

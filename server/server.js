@@ -19,7 +19,7 @@ const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const categoryRoutes = require('./routes/category');
 const linkRoutes = require('./routes/link');
-
+const videoRoutes = require('./routes/video');
 
 // app middlewares
 app.use(morgan('dev'));
@@ -32,6 +32,7 @@ app.use('/api', authRoutes);
 app.use('/api', userRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api', linkRoutes);
+app.use('/api', videoRoutes);
 
 const port = process.env.PORT;
 app.listen(port, () => {
